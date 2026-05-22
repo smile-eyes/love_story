@@ -1,0 +1,377 @@
+<!--
+ * @Author: liuck
+ * @Descripttion: 
+ * @version: 
+ * @email: 
+ * @Date: 2023-08-22 16:37:39
+ * @LastEditors: liuck
+ * @LastEditTime: 2023-08-22 23:51:56
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lulu</title>
+  <style>
+    html {
+
+      background: url(./pictures/background.jpg);
+      background-size: cover;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    html,
+    body,
+    #app {
+      width: 100%;
+      height: 100%;
+      color: rgba(0, 0, 0, 0);
+
+      transition: color 2s, background-color 3s;
+
+      background-color: rgba(0, 0, 0, 0);
+    }
+
+    #app {
+      opacity: 0;
+      transition: color 2s, background-color 3s, opacity 2s;
+    }
+
+    .wordBox {
+      height: 100%;
+      width: 100%;
+      position: relative;
+    }
+
+    .word {
+      width: 100%;
+      height: 100px;
+      text-align: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: 50% auto 0 auto;
+
+    }
+
+    .img {
+      width: 277px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <canvas id='canvas' v-if="showCanvas"></canvas>
+
+    <div class="wordBox" v-if="!showCanvas">
+      <h1 class="word" v-if="showNumber==1">2026年5月22日</h1>
+      <h3 class="word" v-if="showNumber==2"></h3>
+      <h3 class="word" v-if="showNumber==3">乐乐晚上好</h3>
+      <h3 class="word" v-if="showNumber==4">今天是我们认识的第210天</h3>
+      <h3 class="word" v-if="showNumber==5">最近你还好吗</h3>
+      <h3 class="word" v-if="showNumber==6"></h3>
+      <h3 class="word" v-if="showNumber==7">不知不觉认识你这么久了</h3>
+      <h3 class="word" v-if="showNumber==8">情感这件东西真是不好解释</h3>
+      <h3 class="word" v-if="showNumber==9">喜欢与爱</h3>
+      <h3 class="word" v-if="showNumber==10">生气与难过</h3>
+      <h3 class="word" v-if="showNumber==11">似乎都有存在的价值</h3>
+      <h3 class="word" v-if="showNumber==12"></h3>
+      <h3 class="word" v-if="showNumber==13">有些模糊曾经的我们是什么样子</h3>
+      <h3 class="word" v-if="showNumber==14">节日快乐</h3>
+      <h3 class="word" v-if="showNumber==15">送你一束烟花</h3>
+      <h3 class="word" v-if="showNumber==16">希望这束烟花带给我们好运与快乐</h3>
+      <h3 class="word" v-if="showNumber==17">✨要开始喽🧨💥</h3>
+
+      <h3 class="word" v-if="showNumber==21"><img src="./pictures/a.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==22"><img src="./pictures/b.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==23"><img src="./pictures/c.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==24"><img src="./pictures/d.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==25"><img src="./pictures/e.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==26"><img src="./pictures/f.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==27"><img src="./pictures/g.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==28"><img src="./pictures/h.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==29"><img src="./pictures/i.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==30"><img src="./pictures/j.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==31"><img src="./pictures/k.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==32"><img src="./pictures/l.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==33"><img src="./pictures/m.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==34"><img src="./pictures/n.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==35"><img src="./pictures/o.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==36"><img src="./pictures/p.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==37"><img src="./pictures/q.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==38"><img src="./pictures/r.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==39"><img src="./pictures/s.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==40"><img src="./pictures/t.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==41"><img src="./pictures/u.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==42"><img src="./pictures/v.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==43"><img src="./pictures/w.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==44"><img src="./pictures/x.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==45"><img src="./pictures/y.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==46"><img src="./pictures/z.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==47"><img src="./pictures/aa.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==48"><img src="./pictures/ab.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==49"><img src="./pictures/ac.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==50"><img src="./pictures/ad.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==51"><img src="./pictures/ae.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==52"><img src="./pictures/af.jpg" class="img" alt=""></h3>
+      <h3 class="word" v-if="showNumber==53">爱你❤️！</h3>
+      <h1 class="word" v-if="showNumber==54">over</h1>
+    </div>
+  </div>
+  <script src="./js/vue.js"></script>
+  <script>
+
+    const { createApp, ref } = Vue
+
+    createApp({
+      setup() {
+        // const message = ref('Hello vue!')
+        const showCanvas = ref(false)
+        const appDom = document.querySelector('#app')
+        const showNumber = ref(0)
+        var interval1 = setInterval(() => {
+          if (showNumber.value > 53) {
+            clearInterval(interval1)
+            appDom.style.opacity = 1
+            appDom.style.backgroundColor = 'rgba(0, 0, 0, 1)'
+          }
+          showNumber.value++
+          appDom.style.color = 'rgba(0, 0, 0, 1)'
+          appDom.style.opacity = 1
+          console.log(showNumber.value);
+          if (showNumber.value == 18) {
+            appDom.style.backgroundColor = 'rgba(0, 0, 0, 1)'
+          }
+          if (showNumber.value == 20) {
+            appDom.style.backgroundColor = 'rgba(0, 0, 0, 0)'
+          }
+          if (showNumber.value < 18 || showNumber.value > 20) {
+            setTimeout(() => {
+              appDom.style.color = 'rgba(0, 0, 0, 0)'
+              appDom.style.opacity = 0
+            }, 2000);
+          }
+
+
+
+        }, 4000);
+
+        setTimeout(() => {
+
+
+          showCanvas.value = true
+          setTimeout(() => {
+            // showCanvas.value = true
+            const random = function (min, max) {
+              return Math.random() * (max - min) + min
+            }
+            const randomColor = function () {
+              let colors = [
+                "#f44336",
+                "#e91e63",
+                "#9c27b0",
+                "#673ab7",
+                "#3f51b5",
+                "#2196f3",
+                "#03a9f4",
+                "#00bcd4",
+                "#009688",
+                "#4CAF50",
+                "#8BC34A",
+                "#CDDC39",
+                "#FFEB3B",
+                "#FFC107",
+                "#FF9800",
+                "#FF5722",
+              ];
+
+              let num = Math.floor(Math.random() * colors.length)
+              return colors[num]
+            };
+            const canvas = document.querySelector("#canvas")
+            const ctx = canvas.getContext("2d")
+            const _W = canvas.width = window.innerWidth
+            const _H = canvas.height = window.innerHeight
+
+            class FireWork {
+              constructor(x, radius, color, boomPoint) {
+                this.x = x
+                this.y = 1000
+                this.radius = radius
+                this.color = color
+                this.booms = []
+                this.boomPoint = boomPoint
+                this.boomArea = random(60, 150)
+                this.dead = false
+                this.sparkDead = false
+              }
+
+              move() {
+                // 与爆炸位置的距离,逐渐变小
+                let dx = this.boomPoint.x - this.x
+                let dy = this.boomPoint.y - this.y
+                // 跟随距离改变上升速度,逐渐变慢
+                this.x = this.x + dx * 0.01
+                this.y = this.y + dy * 0.01
+                // 后期烟花移动速度过慢,故给一个距离范围,进入范围便爆炸
+                if (Math.abs(dx) <= this.boomArea && Math.abs(dy) <= this.boomArea) {
+                  this.dead = true
+                  this.initBoom()
+                }
+              }
+
+              draw() {
+                ctx.save()
+                ctx.beginPath()
+                ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI)
+                ctx.fillStyle = this.color
+                ctx.fill()
+                ctx.restore()
+              }
+
+              drawTail() {
+                ctx.save()
+                ctx.fillStyle = "rgba(186,186,86,0.3)"
+                ctx.beginPath()
+                ctx.arc(this.x, this.y, random(this.radius, this.radius + 4), 0, 2 * Math.PI)
+                ctx.fill()
+                ctx.restore()
+              }
+
+              initBoom() {
+                let num = random(50, 200)
+                for (let i = 0; i < num; i++) {
+                  let tan = random(-Math.PI, Math.PI);
+                  let x = random(0, 250) * Math.cos(tan) + this.x;
+                  let y = random(0, 250) * Math.sin(tan) + this.y;
+                  let boom = new Spark(this.x, this.y, random(0, 1), randomColor(), x, y);
+                  this.booms.push(boom);
+                }
+              }
+
+              boomAction() {
+                let deadNum = 1
+                for (let i = 0; i < this.booms.length; i++) {
+                  if (!this.booms[i].dead) {
+                    this.booms[i].update();
+                  } else {
+                    deadNum++
+                  }
+                }
+                if (deadNum == this.booms.length) this.sparkDead = true
+              }
+
+              update() {
+                if (!this.dead) {
+                  this.move()
+                  this.draw()
+                  this.drawTail()
+                } else {
+                  this.boomAction()
+                }
+              }
+            }
+
+            class Spark {
+              constructor(centerX, centerY, radius, color, dieX, dieY) {
+                this.dieX = dieX;
+                this.dieY = dieY;
+                this.x = centerX;
+                this.y = centerY;
+                this.dead = false;
+                this.centerX = centerX;
+                this.centerY = centerY;
+                // 火花大小差异化
+                this.radius = random(radius, radius + 1);
+                this.color = color;
+              }
+              draw() {
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+                ctx.fillStyle = this.color;
+                ctx.fill()
+                ctx.restore();
+              }
+              move() {
+                // 模拟重力下降
+                this.dieY = this.dieY + this.radius / 10
+                let dx = this.dieX - this.x
+                let dy = this.dieY - this.y
+                // 如果距离小于 0.1 则坐标直接等于消失坐标
+                this.x = Math.abs(dx) < 0.1 ? this.dieX : (this.x + dx * 0.1);
+                this.y = Math.abs(dy) < 0.1 ? this.dieY : (this.y + dy * 0.1);
+                // x 达到消失坐标,则消失
+                if (dx == 0 && Math.abs(dy) <= 80) {
+                  this.dead = true;
+                }
+              }
+              update() {
+                if (!this.dead) {
+                  this.move()
+                  this.draw()
+                }
+              }
+            }
+
+            const particles = []
+            let oldTime = new Date()
+            let ones = 0
+
+            const animation = function () {
+              window.requestAnimationFrame(animation);
+              // 使用 透明度0.1填充画布,实现烟花拖拽特效
+              ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+              ctx.fillRect(0, 0, canvas.width, canvas.height);
+              // 间隔时间生成烟花
+              let newDate = new Date()
+              if (newDate - oldTime > 1000 && ones == 0) {
+                ones++
+                let o = new FireWork(random(_W / 4, 0.8 * _W), 3, "#FFF", {
+                  x: random(_W / 4, 0.8 * _W),
+                  y: random(50, 200)
+                })
+                particles.push(o)
+                // oldTime = newDate
+              }
+              // 遍历烟花和删除死亡烟花
+              particles.forEach((element, index) => {
+                element.update()
+                if (element.sparkDead) {
+                  particles.splice(index, 1);
+                }
+              });
+            };
+
+            animation()
+            setTimeout(() => {
+              showCanvas.value = false
+              appDom.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+            }, 8000);
+          }, 1000);
+        }, 71000);
+
+
+
+        return {
+          showCanvas, showNumber
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+<script>
+
+</script>
+
+</html>
